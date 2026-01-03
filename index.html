@@ -1,198 +1,80 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Sneaker Rewards – US Only</title>
-  <meta name="description" content="US residents only. Check if you qualify in under 30 seconds." />
+  <meta charset="UTF-8">
+  <title>Continue</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex,nofollow">
 
   <style>
-    :root{
-      --bg1:#0b1220;
-      --bg2:#111a2f;
-      --card:#0f172a;
-      --text:#e5e7eb;
-      --muted:#a3a3a3;
-      --accent:#22c55e;
-      --accent2:#60a5fa;
-      --danger:#fb7185;
-      --shadow: 0 18px 50px rgba(0,0,0,.35);
-      --radius: 18px;
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f2f2f2;
+      margin: 0;
+      padding: 0;
+      text-align: center;
     }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      color:var(--text);
-      background:
-        radial-gradient(900px 600px at 20% 10%, rgba(96,165,250,.22), transparent 55%),
-        radial-gradient(900px 600px at 80% 20%, rgba(34,197,94,.20), transparent 55%),
-        radial-gradient(900px 700px at 50% 90%, rgba(251,113,133,.16), transparent 55%),
-        linear-gradient(180deg, var(--bg1), var(--bg2));
-      min-height:100vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:22px 14px;
+
+    .container {
+      max-width: 420px;
+      margin: 80px auto;
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
-    .wrap{width:min(520px,100%)}
-    .badge{
-      display:inline-flex;
-      gap:8px;
-      align-items:center;
-      padding:10px 12px;
-      border-radius:999px;
-      background:rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.10);
-      margin-bottom:14px;
-      backdrop-filter: blur(10px);
-      font-weight:600;
-      letter-spacing:.2px;
+
+    h1 {
+      font-size: 22px;
+      color: #333;
+      margin-bottom: 15px;
     }
-    .dot{
-      width:10px;height:10px;border-radius:50%;
-      background:var(--accent);
-      box-shadow:0 0 0 6px rgba(34,197,94,.15);
+
+    p {
+      font-size: 15px;
+      color: #555;
+      margin-bottom: 25px;
     }
-    .card{
-      background:rgba(15,23,42,.88);
-      border:1px solid rgba(255,255,255,.10);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      padding:22px 18px 16px;
-      position:relative;
-      overflow:hidden;
+
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 15px;
+      font-size: 16px;
+      background: #2e7df6;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
     }
-    .glow{
-      position:absolute; inset:-40px -60px auto auto;
-      width:220px; height:220px;
-      background: radial-gradient(circle at 30% 30%, rgba(96,165,250,.40), transparent 60%);
-      filter: blur(0px);
-      pointer-events:none;
-      opacity:.9;
+
+    .btn:hover {
+      background: #1f5fcc;
     }
-    h1{
-      margin:6px 0 10px;
-      font-size:28px;
-      line-height:1.12;
-      letter-spacing:-.4px;
-    }
-    .sub{
-      margin:0 0 16px;
-      color:rgba(229,231,235,.82);
-      font-size:15.5px;
-      line-height:1.45;
-    }
-    .pill-row{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      margin:14px 0 18px;
-    }
-    .pill{
-      padding:10px 12px;
-      border-radius:999px;
-      background:rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.10);
-      font-size:13px;
-      color:rgba(229,231,235,.88);
-      display:inline-flex;
-      gap:8px;
-      align-items:center;
-    }
-    .pill b{color:#fff}
-    .cta{
-      display:block;
-      width:100%;
-      border:none;
-      border-radius:16px;
-      padding:16px 14px;
-      font-size:16px;
-      font-weight:800;
-      cursor:pointer;
-      color:#06101f;
-      background: linear-gradient(90deg, var(--accent), var(--accent2));
-      box-shadow: 0 14px 40px rgba(34,197,94,.22);
-      transform: translateY(0);
-      transition: transform .12s ease, filter .12s ease;
-      text-align:center;
-      text-decoration:none;
-    }
-    .cta:active{transform: translateY(1px); filter: brightness(.95);}
-    .cta small{
-      display:block;
-      margin-top:6px;
-      font-weight:600;
-      font-size:12px;
-      color:rgba(6,16,31,.75);
-    }
-    .hint{
-      text-align:center;
-      margin:12px 0 0;
-      color:rgba(229,231,235,.75);
-      font-size:12.5px;
-    }
-    .danger{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      margin-top:12px;
-      padding:10px 12px;
-      border-radius:14px;
-      background: rgba(251,113,133,.10);
-      border:1px solid rgba(251,113,133,.22);
-      color: rgba(255,255,255,.90);
-      font-size:13px;
-    }
-    .footer{
-      margin-top:14px;
-      padding:12px 2px 0;
-      color:rgba(229,231,235,.55);
-      font-size:11.5px;
-      line-height:1.4;
-      text-align:center;
-    }
-    .link{
-      color:rgba(96,165,250,.95);
-      text-decoration:none;
-      font-weight:700;
+
+    .note {
+      margin-top: 15px;
+      font-size: 12px;
+      color: #888;
     }
   </style>
 </head>
 
 <body>
-  <main class="wrap">
-    <div class="badge"><span class="dot"></span> US residents only 🇺🇸</div>
 
-    <section class="card">
-      <div class="glow"></div>
+  <div class="container">
+    <h1>Restricted Content</h1>
 
-      <h1>Some people get approved 👀<br/>Not everyone qualifies.</h1>
-      <p class="sub">
-        If you live in the <b>United States</b>, you can check eligibility in <b>under 30 seconds</b>.
-        No long forms here — just start and follow the steps.
-      </p>
+    <p>This content is available for users who continue to the next step.</p>
 
-      <div class="pill-row">
-        <div class="pill">⏱️ <b>30 sec</b> check</div>
-        <div class="pill">💳 <b>No card</b> needed</div>
-        <div class="pill">📍 <b>US only</b></div>
-      </div>
+    <!-- PEGÁ TU SMARTLINK AQUÍ -->
+    <a href="https://filestrue.com/1865439" class="btn">
+      Continue
+    </a>
 
-      <!-- ✅ Pega tu link de CPAgrip aquí -->
-      <a class="cta" href="https://singingfiles.com/show.php?l=0&u=2480346&id=72846" rel="noopener nofollow">
-        Check if you qualify
-        <small>Tap to continue →</small>
-      </a>
+    <div class="note">
+      Access is provided by a third-party partner.
+    </div>
+  </div>
 
-      <div class="hint">Tip: If you’re not in the US, this may not work.</div>
-
-      <div class="danger">⚠️ Daily limit may fill up (try again later if it’s closed).</div>
-
-      <div class="footer">
-        This page is for informational purposes. Availability depends on location and daily limits.
-      </div>
-    </section>
-  </main>
 </body>
 </html>
